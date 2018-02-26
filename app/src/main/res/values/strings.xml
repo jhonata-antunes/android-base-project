@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidBaseProject</string>
+
+    <string name="hint_enter_a_recipe">Digite uma receita em inglês</string>
+    <string name="send">Enviar</string>
+
 </resources>
