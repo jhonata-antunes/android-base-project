@@ -36,6 +36,7 @@ public class ExampleActivity extends BaseActivity implements ExampleMvpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
         ButterKnife.bind(this);
+        setToolbar("Example");
 
         mExamplePresenter = new ExamplePresenter();
         mExamplePresenter.attachView(this);
