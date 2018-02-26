@@ -3,11 +3,16 @@ package com.example.androidbaseproject.activity.example;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.androidbaseproject.R;
 import com.example.androidbaseproject.activity.baseActivity.BaseActivity;
+import com.example.androidbaseproject.helpers.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +26,8 @@ public class ExampleActivity extends BaseActivity implements ExampleMvpView {
     ProgressBar mProgressPb;
     @BindView(R.id.example_result_tv)
     TextView mResultTv;
+    @BindView(R.id.example_img_iv)
+    ImageView mRandomImgIv;
 
     private ExamplePresenter mExamplePresenter;
 
@@ -32,6 +39,13 @@ public class ExampleActivity extends BaseActivity implements ExampleMvpView {
 
         mExamplePresenter = new ExamplePresenter();
         mExamplePresenter.attachView(this);
+
+        // Glide example
+        Glide
+                .with(this)
+                .load(Constants.RANDOM_IMAGE_URL)
+                .apply(RequestOptions.bitmapTransform(new CircleCrop()))
+                .into(mRandomImgIv);
     }
 
     @Override
